@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <ul class="wrap">
+          <li :class="{'active': tags == 'all'}"><a href="#" @click.prevent="tags = 'all'">My Tasks</a></li>
+          <li :class="{'active': tags == 'active'}"><a href="#" @click.prevent="tags = 'active'">In Progress</a></li>
+          <li :class="{'active': tags == 'completed'}"><a href="#" @click.prevent="tags = 'completed'">Completed</a></li>
+        </ul>
+      </header>
+      <main class="wrap">
+        <input type="text" placeholder=" + Add Task" v-model="newTodo" v-if="!openAddTodo" @keyup.enter="addTodo" @click.prevent="openAddTodo = true"/>
+        <div v-if="openAddTodo" @keyup.enter="openAddTodo = false" class="newTodoListBox">
+          <div class="newTodoListBoxHeader">
+            <input type="checkbox"/>
+            <div>
+              <input type="text" placeholder="Type Something Here…" v-model="newTodo" @keyup.enter="addTodo"/>
+            </div><i class="far fa-star"></i><i class="far fa-edit"></i>
+          </div>
+          <hr/>
+          <ul class="newTodoListBoxMain">
+            <li>
+              <div><i class="far fa-calendar-alt"></i><span>Deadline</span></div>
+              <div>
+                <input id="datetime" type="date" v-model="newDate">
+                <input type="time" v-model="newTime">
+              </div>
+            </li>
+            <li>
+              <div><i class="far fa-file"></i><span>File</span>
+                <div>
+                  <label for="" class="ml-2">{{newFile}}</label><a href="#" class="file"><i class="fas fa-plus-square"></i>
+                    <input type="file" @click="addNewFile"/></a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div><i class="far fa-comment-dots"></i><span>Comment</span></div>
+              <div>
+                <textarea placeholder="Type your memo here…" v-model="newComment"></textarea>
+              </div>
+            </li>
+          </ul>
+          <div class="addTodoListBox"><a href="#" @click.prevent="cancelTodo" v-if="openAddTodo" class="cancel">X Cancel</a><a href="#" @click="addTodo" @click.prevent="openAddTodo = false" v-if="openAddTodo" class="addTask">+ Add Task</a></div>
+        </div>
+        <div class="TodoListBox">
+          <div class="TodoListBoxHeader">
+            <ul v-for="(item, key) in filtererTodos" class="todoListBox">
+              <li :class="{'listbg': item.star == 'true'}">
+                <input type="checkbox" v-model="item.completed" :id="item.title"/>
+                <div>
+                  <label :class="{'completed' : item.completed}" :for="item.title" v-if="item.id !== cacheTodo.id">{{item.title}}</label>
+                  <input type="text" v-if="item.id == cacheTodo.id" v-model="cacheTitle" :class="{'completed' : item.completed}"/>
+                  <div :class="{'d-none' : item.completed = item.completed}"><span :class="{'d-none' : !item.date}"><i class="far fa-calendar-alt"><span>{{item.date}}</span></i></span><i class="far fa-file" :class="{'d-none' : !item.file}"></i>
+                    <i class="far fa-comment-dots" :class="{'d-none': !item.comment}"></i>
+                  </div>
+                </div><i @click="item.star = 'true'" v-if="item.star == 'false'" class="far fa-star"></i><i @click="item.star = 'false'" v-if="item.star == 'true'" class="fas fa-star star-important"></i><i class="far fa-edit" :class="{'fa-edit-color' : item.id == cacheTodo.id}" @click="editTodo(item)"></i><i @click="removeTodo(key)" @click.prevent="item.id !== cacheTodo.id" class="fas fa-times"></i>
+              </li>
+              <div v-if="item.id == cacheTodo.id" class="todoListContent">
+                <hr/>
+                <ul class="TodoListBoxMain">
+                  <li>
+                    <div><i class="far fa-calendar-alt"></i><span>Deadline</span></div>
+                    <div>
+                      <input id="datetime" type="date" v-model="cacheDate">
+                      <input type="time" v-model="cacheTime">
+                    </div>
+                  </li>
+                  <li>
+                    <div><i class="far fa-file"></i><span>File</span>
+                      <div>
+                        <label for="" class="ml-2">{{item.file}}</label><a href="#" class="file"><i class="fas fa-plus-square"></i>
+                          <input type="file" @click="addNewFile(item)"/></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div><i class="far fa-comment-dots"></i><span>Comment</span></div>
+                    <div>
+                      <textarea placeholder="Type your memo here…" v-model="cacheComment"></textarea>
+                    </div>
+                  </li>
+                </ul>
+                <div class="TodoListBox"><a href="#" @click.prevent="cancelEdit(item)" class="cancel">X Cancel</a><a href="#" @click.prevent="doneEdit(item)" class="save">+ Save</a></div>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <p>{{listLen}}  tasks left</p>
+      </main>
+    </div>
+    <script src="js/all.js"></script>
+  </body>
+</html>

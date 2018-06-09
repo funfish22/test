@@ -1,0 +1,367 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+.wrap {
+  max-width: 620px;
+  margin: 0 auto; }
+
+body {
+  background-color: #E1E1E1; }
+
+.completed {
+  text-decoration: line-through;
+  color: #9B9B9B !important; }
+
+.d-none {
+  display: none !important; }
+
+.listbg {
+  background-color: #FFF2DC !important; }
+
+.star-important {
+  color: #F5A623; }
+
+.fa-edit-color {
+  color: #4A90E2; }
+
+.ml-2 {
+  margin-left: 23px; }
+
+.file {
+  position: relative;
+  overflow: hidden;
+  color: #C8C8C8;
+  text-decoration: none;
+  margin-left: 20px; }
+  .file :hover {
+    cursor: pointer; }
+  .file input {
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 25px !important;
+    height: 20px !important; }
+
+header {
+  background-color: #4A90E2;
+  margin-bottom: 24px; }
+  header ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 24px;
+    height: 76px; }
+    header ul .active {
+      border-bottom: 5px solid #00408B; }
+      header ul .active a {
+        color: #fff; }
+    header ul li {
+      border-bottom: 5px solid #4A90E2; }
+      header ul li:hover {
+        border-bottom: 5px solid #00408B; }
+      header ul li a {
+        width: 160px;
+        height: 76px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        text-decoration: none;
+        margin-bottom: -5px;
+        color: #00408B; }
+        header ul li a:hover {
+          color: #fff; }
+
+main > input {
+  width: 100%;
+  height: 65px;
+  font-size: 24px;
+  border: 2px solid #C8C8C8;
+  border-radius: 5px;
+  padding-left: 33px;
+  margin-bottom: 24px;
+  outline: none; }
+
+main .todoListBox > li {
+  width: 100%;
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 32px 24px; }
+  main .todoListBox > li > i {
+    font-size: 24px;
+    margin-left: 32px;
+    cursor: pointer; }
+  main .todoListBox > li input {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    margin-right: 16px; }
+  main .todoListBox > li div {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+    main .todoListBox > li div label {
+      height: 30px;
+      display: block;
+      font-size: 24px;
+      color: #000000;
+      font-weight: bold; }
+    main .todoListBox > li div i {
+      margin-right: 16px;
+      margin-top: 15px;
+      color: #757575; }
+      main .todoListBox > li div i span {
+        margin-left: 8px; }
+
+main p {
+  font-size: 24px;
+  color: #C8C8C8;
+  padding-left: 32px; }
+
+main .newTodoListBox {
+  background-color: #F2F2F2;
+  -webkit-box-shadow: 0 4px 4px 0 #C8C8C8;
+          box-shadow: 0 4px 4px 0 #C8C8C8;
+  border-radius: 5px;
+  margin-bottom: 24px; }
+  main .newTodoListBox .newTodoListBoxHeader {
+    width: 100%;
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 32px 24px; }
+    main .newTodoListBox .newTodoListBoxHeader input {
+      width: 24px;
+      height: 24px;
+      margin: 0;
+      margin-right: 16px; }
+    main .newTodoListBox .newTodoListBoxHeader div {
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1; }
+      main .newTodoListBox .newTodoListBoxHeader div input {
+        display: block;
+        font-size: 24px;
+        color: #000000;
+        font-weight: bold;
+        width: 100%;
+        height: 30px;
+        background-color: #F2F2F2;
+        border: none;
+        outline: none; }
+    main .newTodoListBox .newTodoListBoxHeader i {
+      font-size: 24px;
+      margin-left: 32px;
+      cursor: pointer; }
+    main .newTodoListBox .newTodoListBoxHeader .fa-edit {
+      color: #4A90E2; }
+  main .newTodoListBox hr {
+    border: 2px solid #C8C8C8;
+    margin: 0; }
+  main .newTodoListBox .newTodoListBoxMain {
+    padding: 24px 78px 24px 72px;
+    font-size: 20px; }
+    main .newTodoListBox .newTodoListBoxMain i {
+      padding-right: 9px;
+      margin-bottom: 8px;
+      width: 25px;
+      height: 25px; }
+    main .newTodoListBox .newTodoListBoxMain span {
+      font-weight: bold; }
+    main .newTodoListBox .newTodoListBoxMain input {
+      margin-left: 23px;
+      width: 162px;
+      height: 35px;
+      background-color: #fff;
+      border-radius: 2px;
+      border: none;
+      margin-bottom: 25px;
+      padding-left: 16px;
+      font-size: 16px; }
+    main .newTodoListBox .newTodoListBoxMain textarea {
+      width: 445px;
+      height: 120px;
+      background-color: #fff;
+      border-radius: 2px;
+      border: none;
+      margin-left: 23px;
+      padding: 8px 16px;
+      resize: none; }
+  main .newTodoListBox .addTodoListBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    main .newTodoListBox .addTodoListBox a {
+      display: block;
+      width: 310px;
+      line-height: 60px;
+      text-decoration: none;
+      text-align: center;
+      font-size: 24px; }
+    main .newTodoListBox .addTodoListBox .cancel {
+      background-color: #fff;
+      color: #D0021B; }
+      main .newTodoListBox .addTodoListBox .cancel:hover {
+        background-color: #FDFDFD; }
+    main .newTodoListBox .addTodoListBox .addTask {
+      background-color: #4A90E2;
+      color: #FFFFFF; }
+      main .newTodoListBox .addTodoListBox .addTask:hover {
+        background-color: #3982D7; }
+
+main .TodoListBox {
+  border-radius: 5px;
+  margin-bottom: 24px; }
+  main .TodoListBox ul {
+    margin-bottom: 8px; }
+  main .TodoListBox .TodoListBoxHeader {
+    width: 100%;
+    border-radius: 5px; }
+    main .TodoListBox .TodoListBoxHeader .todoListContent {
+      margin-top: -8px;
+      background-color: #F2F2F2; }
+      main .TodoListBox .TodoListBoxHeader .todoListContent hr {
+        border: 2px solid #C8C8C8;
+        margin: 0; }
+      main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBoxMain {
+        padding: 24px 78px 24px 72px;
+        font-size: 20px; }
+        main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBoxMain i {
+          padding-right: 9px;
+          margin-bottom: 8px;
+          width: 25px;
+          height: 25px; }
+        main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBoxMain span {
+          font-weight: bold; }
+        main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBoxMain input {
+          margin-left: 23px;
+          width: 162px;
+          height: 35px;
+          background-color: #fff;
+          border-radius: 2px;
+          border: none;
+          margin-bottom: 25px;
+          padding-left: 16px;
+          font-size: 16px; }
+        main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBoxMain label {
+          margin-left: 23px;
+          width: 162px;
+          height: 35px;
+          border-radius: 2px;
+          border: none;
+          font-size: 16px; }
+        main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBoxMain textarea {
+          width: 445px;
+          height: 120px;
+          background-color: #fff;
+          border-radius: 2px;
+          border: none;
+          margin-left: 23px;
+          padding: 8px 16px;
+          resize: none; }
+      main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBox {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+        main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBox a {
+          display: block;
+          width: 310px;
+          line-height: 60px;
+          text-decoration: none;
+          text-align: center;
+          font-size: 24px; }
+        main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBox .cancel {
+          background-color: #fff;
+          color: #D0021B; }
+          main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBox .cancel:hover {
+            background-color: #FDFDFD; }
+        main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBox .save {
+          background-color: #4A90E2;
+          color: #FFFFFF; }
+          main .TodoListBox .TodoListBoxHeader .todoListContent .TodoListBox .save:hover {
+            background-color: #3982D7; }
+    main .TodoListBox .TodoListBoxHeader input {
+      width: 24px;
+      height: 24px;
+      margin: 0;
+      margin-right: 16px; }
+    main .TodoListBox .TodoListBoxHeader div {
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1; }
+      main .TodoListBox .TodoListBoxHeader div input {
+        font-size: 24px;
+        color: #000000;
+        font-weight: bold;
+        width: 100%;
+        height: 30px;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        outline: none; }
+    main .TodoListBox .TodoListBoxHeader > i {
+      font-size: 24px;
+      margin-left: 32px;
+      cursor: pointer; }
