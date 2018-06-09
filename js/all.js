@@ -1,6 +1,11 @@
 'use strict';
 
+var addTodo = document.getElementById('addTodo');
+var getDate = localStorage.getItem('todo');
+var todos = JSON.parse(getDate) || [];
+
 var app = new Vue({
+    
     el: '#app',
     data: {
         newTodo: '',
@@ -8,16 +13,7 @@ var app = new Vue({
         newDate: '',
         newTime: '',
         newFile: '',
-        todos: [{
-            id: '123',
-            title: 'Type Something Here…',
-            completed: false,
-            comment: 'test',
-            star: 'false',
-            date: '2018-06-06',
-            time: '00:00',
-            file: 'test.jpg'
-        }],
+        todos: todos,
         tags: 'all',
         openAddTodo: false,
         cacheTodo: {},
@@ -56,6 +52,8 @@ var app = new Vue({
                 time: time,
                 file: file
             });
+            var data = JSON.stringify(this.todos)
+            localStorage.setItem('todo', data);
             this.newTodo = '';
             this.newComment = '';
             this.newTime = '';
@@ -72,6 +70,7 @@ var app = new Vue({
         },
         removeTodo: function removeTodo(key) {
             this.todos.splice(key, 1);
+            localStorage.setItem('todo', JSON.stringify(this.todos));
         },
         editTodo: function editTodo(item) {
             this.cacheTodo = item;
@@ -94,6 +93,7 @@ var app = new Vue({
             this.cacheComment = '';
             this.cacheTitle = '';
             this.newFile = '';
+            localStorage.setItem('todo', JSON.stringify(this.todos));
         },
         cancelEdit: function cancelEdit(item) {
             this.cacheTodo = {};
@@ -108,6 +108,18 @@ var app = new Vue({
             this.newFile = 'test.jpg';
             item.file = 'test.jpg';
             this.cacheFile = this.newFile;
+        },
+        completed(item){
+            item.completed = !item.completed;
+            localStorage.setItem('todo', JSON.stringify(this.todos));
+        },
+        starOpen(item){
+            item.star = 'true';
+            localStorage.setItem('todo', JSON.stringify(this.todos));
+        },
+        starClose(item){
+            item.star = 'false';
+            localStorage.setItem('todo', JSON.stringify(this.todos));
         }
         // openAddTodo(){
         //     console.log('123');

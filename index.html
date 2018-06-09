@@ -51,20 +51,20 @@
               </div>
             </li>
           </ul>
-          <div class="addTodoListBox"><a href="#" @click.prevent="cancelTodo" v-if="openAddTodo" class="cancel">X Cancel</a><a href="#" @click="addTodo" @click.prevent="openAddTodo = false" v-if="openAddTodo" class="addTask">+ Add Task</a></div>
+          <div class="addTodoListBox"><a id="addTodo" href="#" @click.prevent="cancelTodo" v-if="openAddTodo" class="cancel">X Cancel</a><a href="#" @click="addTodo" @click.prevent="openAddTodo = false" v-if="openAddTodo" class="addTask">+ Add Task</a></div>
         </div>
         <div class="TodoListBox">
           <div class="TodoListBoxHeader">
             <ul v-for="(item, key) in filtererTodos" class="todoListBox">
               <li :class="{'listbg': item.star == 'true'}">
-                <input type="checkbox" v-model="item.completed" :id="item.title"/>
+                <input type="checkbox" @click="completed(item)" :checked="item.completed" :id="item.title"/>
                 <div>
                   <label :class="{'completed' : item.completed}" :for="item.title" v-if="item.id !== cacheTodo.id">{{item.title}}</label>
                   <input type="text" v-if="item.id == cacheTodo.id" v-model="cacheTitle" :class="{'completed' : item.completed}"/>
                   <div :class="{'d-none' : item.completed = item.completed}"><span :class="{'d-none' : !item.date}"><i class="far fa-calendar-alt"><span>{{item.date}}</span></i></span><i class="far fa-file" :class="{'d-none' : !item.file}"></i>
                     <i class="far fa-comment-dots" :class="{'d-none': !item.comment}"></i>
                   </div>
-                </div><i @click="item.star = 'true'" v-if="item.star == 'false'" class="far fa-star"></i><i @click="item.star = 'false'" v-if="item.star == 'true'" class="fas fa-star star-important"></i><i class="far fa-edit" :class="{'fa-edit-color' : item.id == cacheTodo.id}" @click="editTodo(item)"></i><i @click="removeTodo(key)" @click.prevent="item.id !== cacheTodo.id" class="fas fa-times"></i>
+                </div><i @click="starOpen(item)" v-if="item.star == 'false'" class="far fa-star"></i><i @click="starClose(item)" v-if="item.star == 'true'" class="fas fa-star star-important"></i><i class="far fa-edit" :class="{'fa-edit-color' : item.id == cacheTodo.id}" @click="editTodo(item)"></i><i @click="removeTodo(key)" @click.prevent="item.id !== cacheTodo.id" class="fas fa-times"></i>
               </li>
               <div v-if="item.id == cacheTodo.id" class="todoListContent">
                 <hr/>
