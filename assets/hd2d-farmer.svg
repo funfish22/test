@@ -1,0 +1,43 @@
+<svg width="96" height="128" viewBox="0 0 96 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="coat" x1="48" y1="46" x2="48" y2="93" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#78A6FF"/>
+      <stop offset="1" stop-color="#3E5FBF"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="48" y1="18" x2="48" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9A6A45"/>
+      <stop offset="1" stop-color="#6B442C"/>
+    </linearGradient>
+    <filter id="softGlow" x="0" y="0" width="96" height="128" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <ellipse cx="48" cy="111" rx="19" ry="8" fill="#000" fill-opacity="0.28"/>
+
+  <g filter="url(#softGlow)">
+    <rect x="36" y="24" width="24" height="22" rx="3" fill="#F6C89E"/>
+    <rect x="34" y="16" width="28" height="8" rx="2" fill="url(#hair)"/>
+    <rect x="38" y="30" width="4" height="4" fill="#1B1B1B"/>
+    <rect x="54" y="30" width="4" height="4" fill="#1B1B1B"/>
+
+    <rect x="30" y="46" width="36" height="42" rx="5" fill="url(#coat)"/>
+    <rect x="30" y="46" width="36" height="8" fill="#9FC2FF" fill-opacity="0.5"/>
+
+    <rect x="22" y="50" width="8" height="28" rx="3" fill="#F2BE94"/>
+    <rect x="66" y="50" width="8" height="28" rx="3" fill="#F2BE94"/>
+
+    <rect x="33" y="88" width="12" height="20" rx="3" fill="#2B3E73"/>
+    <rect x="51" y="88" width="12" height="20" rx="3" fill="#2B3E73"/>
+
+    <rect x="32" y="106" width="14" height="5" rx="2" fill="#3D2D22"/>
+    <rect x="50" y="106" width="14" height="5" rx="2" fill="#3D2D22"/>
+
+    <rect x="28" y="56" width="4" height="16" fill="#A3D6FF" fill-opacity="0.7"/>
+    <rect x="64" y="56" width="4" height="16" fill="#A3D6FF" fill-opacity="0.7"/>
+  </g>
+</svg>
